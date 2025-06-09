@@ -208,19 +208,19 @@ def appVideoFilters():
 
 
             # Import allfilters
-            self.filter1 = cv2.imread('filters/filter1.png', cv2.IMREAD_UNCHANGED)
-            self.filter2 = cv2.imread('filters/filter2.png', cv2.IMREAD_UNCHANGED)
-            self.filter3 = cv2.imread('filters/filter3.png', cv2.IMREAD_UNCHANGED)
-            self.filter4 = cv2.imread('filters/filter4.png', cv2.IMREAD_UNCHANGED)
-            self.filter5 = cv2.imread('filters/filter5.png', cv2.IMREAD_UNCHANGED)
-            self.filter6 = cv2.imread('filters/filter6.png', cv2.IMREAD_UNCHANGED)
-            self.filter8 = cv2.imread('filters/filter8.png', cv2.IMREAD_UNCHANGED)
-            self.filter9 = cv2.imread('filters/filter9.png', cv2.IMREAD_UNCHANGED)
-            self.filter10 = cv2.imread('filters/filter10.png', cv2.IMREAD_UNCHANGED)
-            self.filter11 = cv2.imread('filters/filter11.png', cv2.IMREAD_UNCHANGED)
-            self.filter12 = cv2.imread('filters/filter12.png', cv2.IMREAD_UNCHANGED)
-            self.filter13 = cv2.imread('filters/filter13.png', cv2.IMREAD_UNCHANGED)
-            self.filter14 = cv2.imread('filters/filter14.png', cv2.IMREAD_UNCHANGED)
+            self.filter1 = cv2.imread('C:/Users/joaog/Desktop/Python/idomai/filters/filter1.png', cv2.IMREAD_UNCHANGED)
+            self.filter2 = cv2.imread('C:/Users/joaog/Desktop/Python/idomai/filters/filter2.png', cv2.IMREAD_UNCHANGED)
+            self.filter3 = cv2.imread('C:/Users/joaog/Desktop/Python/idomai/filters/filter3.png', cv2.IMREAD_UNCHANGED)
+            self.filter4 = cv2.imread('C:/Users/joaog/Desktop/Python/idomai/filters/filter4.png', cv2.IMREAD_UNCHANGED)
+            self.filter5 = cv2.imread('C:/Users/joaog/Desktop/Python/idomai/filters/filter5.png', cv2.IMREAD_UNCHANGED)
+            self.filter6 = cv2.imread('C:/Users/joaog/Desktop/Python/idomai/filters/filter6.png', cv2.IMREAD_UNCHANGED)
+            self.filter8 = cv2.imread('C:/Users/joaog/Desktop/Python/idomai/filters/filter8.png', cv2.IMREAD_UNCHANGED)
+            self.filter9 = cv2.imread('C:/Users/joaog/Desktop/Python/idomai/filters/filter9.png', cv2.IMREAD_UNCHANGED)
+            self.filter10 = cv2.imread('C:/Users/joaog/Desktop/Python/idomai/filters/filter10.png', cv2.IMREAD_UNCHANGED)
+            self.filter11 = cv2.imread('C:/Users/joaog/Desktop/Python/idomai/filters/filter11.png', cv2.IMREAD_UNCHANGED)
+            self.filter12 = cv2.imread('C:/Users/joaog/Desktop/Python/idomai/filters/filter12.png', cv2.IMREAD_UNCHANGED)
+            self.filter13 = cv2.imread('C:/Users/joaog/Desktop/Python/idomai/filters/filter13.png', cv2.IMREAD_UNCHANGED)
+            self.filter14 = cv2.imread('C:/Users/joaog/Desktop/Python/idomai/filters/filter14.png', cv2.IMREAD_UNCHANGED)
 
 
         '''
@@ -433,6 +433,7 @@ def appVideoFilters():
                         elif self.type == "Mascara Covid 7":
                             typeFilter = "mask"
                             filterImg = self.filter14
+                        
 
                         dstMat = self.classPoints(results.multi_face_landmarks, image, typeFilter) 
                         resultImg = self.applyFilter(filterImg,resultImg,dstMat)  
@@ -464,36 +465,10 @@ def appVideoFilters():
 
     if webrtc_ctx.video_transformer:
         webrtc_ctx.video_transformer.type = st.radio(
-            "Selecciona el tipo de filtro que deseas aplicar", ("mapa puntos", "bigote", "gafas", "sombrero", "anonymous", "monstruo", "oxigeno1", "Mascara Covid 1", "Mascara Covid 2", "Mascara Covid 3", "Mascara Covid 4", "Mascara Covid 5", "Mascara Covid 6", "Mascara Covid 7")
+            "Selecione o acessório", ("mapa puntos", "bigote", "gafas", "sombrero", "anonymous", "monstruo", "oxigeno1", "Mascara Covid 1", "Mascara Covid 2", "Mascara Covid 3", "Mascara Covid 4", "Mascara Covid 5", "Mascara Covid 6", "Mascara Covid 7")
         )
 
 
-## Run Model to apply filters to the local images.
-def appBackground():
-    """ Video transforms with OpenCV """
-
-    class MediaPipeTransformer(VideoTransformerBase):
-        type: Literal["Palacio de la Inquisición", "Torre del Reloj", "Santuario de San Pedro Claver", "Cuartel de las Bóvedas", "Convento de Santa Cruz de la Popa"]
-
-        ## Inicializate share variables.
-        def __init__(self):
-            self.graph = self.load_model()
-            self.config = tf.ConfigProto(allow_soft_placement=True)
-            self.config.gpu_options.allow_growth = True
-            
-            self.graph.as_default()
-            self.sess = tf.Session(graph=self.graph)
-            self.target_size = (513, 384)
-            self.background1 = cv2.imread('background/background1.jpg')
-            self.background2 = cv2.imread('background/background2.jpg')
-            self.background3 = cv2.imread('background/background3.jpg')
-            self.background4 = cv2.imread('background/background4.jpg')
-            self.background5 = cv2.imread('background/background5.jpg')
-            self.background1 = cv2.resize( self.background1, self.target_size)
-            self.background2 = cv2.resize( self.background2, self.target_size)
-            self.background3 = cv2.resize( self.background3, self.target_size)
-            self.background4 = cv2.resize( self.background4, self.target_size)
-            self.background5 = cv2.resize( self.background5, self.target_size)
 
     
 

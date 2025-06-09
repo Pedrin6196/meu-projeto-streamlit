@@ -1,0 +1,12 @@
+streamlit==1.10.0
+altair==4.2.0
+opencv-python
+numpy
+Pillow
+mediapipe
+tensorflow==1.15.5
+scikit-image
+av
+streamlit-webrtc
+typing-extensions
+aiortc
